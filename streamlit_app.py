@@ -4,8 +4,11 @@ from llama_index.llms import OpenAI
 import openai
 from llama_index import SimpleDirectoryReader
 import os
+from dotenv import load_dotenv
 
-os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']   
+load_dotenv() 
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")   
 
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
